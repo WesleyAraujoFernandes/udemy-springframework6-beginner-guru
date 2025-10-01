@@ -21,9 +21,9 @@ public class Author {
     @ToString.Include
     private Long id;
     @ToString.Include
-    private String firstname;
+    private String firstName;
     @ToString.Include
-    private String lastname;
+    private String lastName;
     @ManyToMany(mappedBy = "authors")
     //@ToString.Include
     private Set<Book> books;
