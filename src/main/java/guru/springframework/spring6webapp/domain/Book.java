@@ -1,5 +1,6 @@
 package guru.springframework.spring6webapp.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -8,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -30,5 +32,7 @@ public class Book {
     @JoinTable(name = "author_book", 
         joinColumns = @jakarta.persistence.JoinColumn(name = "book_id"), 
         inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "author_id"))
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
+    @ManyToOne
+    private Publisher publisher;
 }
